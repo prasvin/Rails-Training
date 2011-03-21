@@ -1,0 +1,28 @@
+<h1>Listing attendances</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Year</th>
+    <th>Month</th>
+    <th>Day</th>
+    <th>Present(t/f)</th>
+  </tr>
+
+<% @attendances.each do |attendance| %>
+  <tr>
+    <td><%= attendance.student_name %></td>
+    <td><%= attendance.year %></td>
+    <td><%= attendance.month %></td>
+    <td><%= attendance.day %></td>
+    <td><%= attendance.present %></td>
+    <td><%= link_to 'Show', attendance %></td>
+    <td><%= link_to 'Edit', edit_attendance_path(attendance) %></td>
+    <td><%= link_to 'Destroy', attendance, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Create New Attendance', new_attendance_path %>
